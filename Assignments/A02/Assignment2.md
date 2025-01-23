@@ -76,8 +76,7 @@ $ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.B
 4. Create the Docker container
    
 ```bash
-$ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' 
-/bin/bash
+$ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash
 ```
 
 5.  Activate conda environment and enter your working directory
