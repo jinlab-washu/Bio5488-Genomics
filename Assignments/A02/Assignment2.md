@@ -67,24 +67,26 @@ We can combine these in a single command.
 ```
 :wq
 ```
+*Then log out of RIS and back in.*
 
 **3. Specify the working path for the Docker container**
    
 ```bash
-$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/'
+$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/ /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/'
 ```
 
 **4. Create the Docker container**
-   
+
+You can only submit bsub jobs from you home directory!
 ```bash
 $ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash
 ```
 
 **5.  Activate conda environment and enter your working directory**
-   
+
 ```bash
 $ conda activate bio5488
-$ cd assignment2
+$ cd /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
 ```
 
 Now you are ready for sequence alignment!
