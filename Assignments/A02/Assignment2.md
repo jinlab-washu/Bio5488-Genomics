@@ -88,6 +88,12 @@ $ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio54
 $ conda activate bio5488
 $ cd /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
 ```
+If this returns a CondaError, you can code the path to the tools each time you use it. Ex:
+```bash
+$ /opt/conda/envs/bio5488/bin/python3
+$ /opt/conda/envs/bio5488/bin/bowtie-2
+$ /opt/conda/envs/bio5488/bin/bedtools
+```
 
 Now you are ready for sequence alignment!
 
