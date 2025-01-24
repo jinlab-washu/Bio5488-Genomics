@@ -16,7 +16,7 @@ When you're done, copy over your final files to the submissions directory: ```/s
 
 **Don't forget your readme file!**
 
-1. Copy files to your working directory.
+**1. Copy files to your working directory.**
    
 ```bash
 $ cp \
@@ -25,11 +25,12 @@ $ cp \
 ```
    Four files in total (chr22.fa, reads.fq, nuc_count_FINAL.py, README.txt) should be in the folder.
    
-2. Modify the .bashrc file to initialize conda (make sure you are in the home folder).
+**2. Modify the .bashrc file to initialize the conda environment.**
    
 Here, we're showing how to do this in a command-line based text editor named vim. You can use any text editor you want, though!
 
 ```bash
+$ cd ~ # go to your the home folder
 $ vim .bashrc
 ```
 
@@ -67,19 +68,19 @@ We can combine these in a single command.
 :wq
 ```
 
-3. Specify the working path for the Docker container
+**3. Specify the working path for the Docker container**
    
 ```bash
 $ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/'
 ```
 
-4. Create the Docker container
+**4. Create the Docker container**
    
 ```bash
 $ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash
 ```
 
-5.  Activate conda environment and enter your working directory
+**5.  Activate conda environment and enter your working directory**
    
 ```bash
 $ conda activate bio5488
@@ -88,7 +89,7 @@ $ cd assignment2
 
 Now you are ready for sequence alignment!
 
-Task1: Build a index for chr22
+**Task1: Build a index for chr22**
 
 Genome indexing aims to store the context of the genome to make the searching task more efficient. Using Bowtie2, build an index for chr22. The index building function is based on bowtie2-build:
 ```bash
@@ -99,7 +100,7 @@ bowtie2-build will create various files under the name specified with different 
 ```bash
 $ bowtie2 -h
 ```
-Task2: Align the reads to chr22
+**Task2: Align the reads to chr22**
 
 Once you've built the index for chr22, align the reads to chr22 and create an output file for the standard output, and create a report file by piping the bowtie2 summary to a new text file, (i.e, saving the output using the 2> to a text file):
 
