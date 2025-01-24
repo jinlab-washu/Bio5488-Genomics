@@ -21,7 +21,7 @@ When you're done, copy over your final files to the submissions directory: ```/s
 ```bash
 $ cp \
   /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
 ```
    Four files in total (chr22.fa, reads.fq, nuc_count_FINAL.py, README.txt) should be in the folder.
    
@@ -39,6 +39,11 @@ There will be a section titled as:
 ```bash
 # User specific aliases and functions
 ```
+
+Type "i" to enter insert mode, so you can edit the file.
+If you wonder why you type "i", you can look at this short tutorial: https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor
+
+Note: you can do very fancy things with vim, but simple commands are already very useful.
 
 Copy the following code below this section:
 
@@ -61,6 +66,7 @@ unset __conda_setup
 
 save and exit.
 
+First, press "Escape" ("ESC" key on the keyboard) to escape insert mode.
 In vim, :w means write (i.e. save), and :q means quit.
 
 We can combine these in a single command.
