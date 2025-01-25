@@ -70,16 +70,13 @@ We will continue our practice with bowtie2.
 You will need to construct an index file for the hg38-chr22 reference and the CHM13
 chr22 reference. 
 ```
-$ bowtie2-build <path to hg38-chr22.fa> <index filename prefix (minus 
-trailing .X.bt2) eg. hg38-chr22_idx>  
-$ bowtie2-build <path to t2t-chr22.fa> <index filename prefix (minus 
-trailing .X.bt2) eg. t2t-chr22_idx>  
+$ bowtie2-build <path to hg38-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. hg38-chr22_idx>  
+$ bowtie2-build <path to t2t-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. t2t-chr22_idx>  
 ```
 Once you have built the index files, use bowtie2 to map the reads to hg38 and CHM13, 
 and compare mapping result differences.  
 ```
-$ bowtie2 <write your options here. Note that the reads in test-500k.fq are 
-unpaired> 2> <report file>
+$ bowtie2 <write your options here. Note that the reads in test-500k.fq are unpaired> 2> <report file>
 ```
 
 **Question 4** 
