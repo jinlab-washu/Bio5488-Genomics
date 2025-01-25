@@ -16,17 +16,19 @@ recently released a complete human genome assembly that we call CHM13. Let’s t
 a closer look at the differences between hg38 and CHM13. For your convenience, chr22 
 sequences from hg38 and CHM13 are provided here: 
 
-```
+```bash
 AssignmentDir="/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A03"
-hg38Dir=${AssignmentDir}/Assignment_Data/hg38-chr22.fa
-CMH13Dir=${AssignmentDir}/Assignment_Data/t2t-chr22.fa
+hg38="${AssignmentDir}/Assignment_Data/hg38-chr22.fa"
+CHM13="${AssignmentDir}/Assignment_Data/t2t-chr22.fa"
 ```
 Copy these files to your assignment3 working directory.
 
 If you need a refreshment of how to navigate to your working directory, please refer Assignment2.
 
+---
+
 ### Part 1. Characterize the differences between hg38 and CHM13.
-Copy the incomplete script finding_gaps.py from the ```$AssignmentDir``` folder to your assignment3 working directory. There are prompts in finding_gaps.py where you need to work. Please look for comments and 
+Copy the incomplete script `finding_gaps.py` from the ```$AssignmentDir``` folder to your assignment3 working directory. There are prompts in `finding_gaps.py` where you need to work. Please look for comments and 
 TODOs in the script that will tell you what you need to do. Once you have completed this 
 script it should be able to parse through each of the above reference files for 
 chromosome 22 and provide the following information: 
@@ -40,7 +42,7 @@ chromosome 22 and provide the following information:
 
 **Small Extra credit opportunity**: 
 In addition to the standard histogram, display the distribution in a more visually pleasant 
-manner using your finding_gaps.py script. 
+manner using your `finding_gaps.py` script. 
 The following questions associated with part 1 should be answered in your 
 README.txt. Please also add the command used to run the script to your README.txt. 
 
@@ -58,25 +60,23 @@ of differences observed?
 
 How many gaps are there in hg38 and CHM13? 
 
+---
 
 ### Part 2. Map a functional genomics dataset of human trophoblast (ATAC-seq).
 ATAC-seq data: 
-```
+```bash
 ${AssignmentDir}/Assignment_Data/test-500k.fq 
  ```
-Once again please copy the above file to your assignment3 working directory where you 
-may then use it. 
-We will continue our practice with bowtie2. 
-You will need to construct an index file for the hg38-chr22 reference and the CHM13
-chr22 reference. 
+Once again please copy the above file to *your assignment3 working directory* where you may then use it. We will continue our practice with bowtie2. You will need to construct an index file for the hg38-chr22 reference and the CHM13 chr22 reference. 
+
+```bash
+bowtie2-build <path to hg38-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. hg38-chr22_idx>  
+bowtie2-build <path to t2t-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. t2t-chr22_idx>  
 ```
-$ bowtie2-build <path to hg38-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. hg38-chr22_idx>  
-$ bowtie2-build <path to t2t-chr22.fa> <index filename prefix (minus trailing .X.bt2) eg. t2t-chr22_idx>  
-```
-Once you have built the index files, use bowtie2 to map the reads to hg38 and CHM13, 
-and compare mapping result differences.  
-```
-$ bowtie2 <write your options here. Note that the reads in test-500k.fq are unpaired> 2> <report file>
+Once you have built the index files, use bowtie2 to map the reads to hg38 and CHM13, and compare mapping result differences.  
+
+```bash
+bowtie2 <write your options here. Note that the reads in test-500k.fq are unpaired> 2> <report file>
 ```
 
 **Question 4** 
@@ -96,15 +96,15 @@ to evaluate and remove these duplicates.
 
 Samtools is already installed on the server. To see the tools available when using 
 samtools enter  
-```
-$ samtools  
+```bash
+samtools  
 ```
 To learn about the options available for each tool use  
 ```
-$ samtools <write the tool name you are interested in here> 
+samtools <write the tool name you are interested in here> 
 ```
 To mark and remove duplicates 4 tools must be used on the sam files that are output 
-from bowtie2. Here you will use the samtools collate, fixmate, sort, and markdup tools 
+from bowtie2. Here you will use the samtools `collate`, `fixmate`, `sort`, and `markdup` tools 
 (in that order) to do so. 
 More information on the different tools is available here: 
 http://www.htslib.org/doc/samtools.html 
@@ -120,6 +120,8 @@ between hg38 and CHM13.
 **Extra Credit opportunity**: 
 Write a python script that parses through a bowtie2 aligned sam file and tallies the 
 number of duplicate reads.
+
+---
 
 ### Part 3. BLAST OFF! 
 For part 3 we will be exploring the commonly used tool BLAST that is hosted by NCBI. 
@@ -180,11 +182,7 @@ Why?
 
 **Question 16** 
 
-Isn't online BLAST really slow? 
-Hopefully, you have now realized two things. First, when we say "closest relative," the 
-answer really depends on the scoring matrix and parameters we use. Second, using 
-BLAST online is really slow. 
-
+Isn't online BLAST really slow? Hopefully, you have now realized two things. First, when we say "closest relative," the  answer really depends on the scoring matrix and parameters we use. Second, using BLAST online is really slow. 
 
 #### What goes in your submission directory? 
 (1) Your README.txt with the answers to the questions and the commands you used to answer the questions.
