@@ -59,20 +59,19 @@ plotname = basename + "_methylation_distribution.png"
 ### 1.A 
 Write a script called "analyze_WGBS_methylation.py that takes a WGBS bed file and:
   1. Calculates the methylation level for each CpG using the formula: 
-  ![CpG methylation level equation](C:\Users\cassi\Genomics\Bio5488-Genomics\Screenshot 2025-01-28 132027.jpg) 
+  $ \text {CpG methylation level} = \frac {\#\text{ C bases}}{\#\text{ C base calls} + \#\text{ T base calls}} $
 
-  2. Writes a file of CpG methylation with 4 columns, name it \<WGBS_bed_basename>_CpG_methylation.bed Do not output CpG islands with 0X coverage.
 
-  | Column 1 | Column 2 | Column 3 | Column 4 |
-  |----------|----------|----------|----------|
-  |    A     |    B     |    C     |    D     |
-  |    E     |    F     |    G     |    H     |
-  |    I     |    J     |    K     |    L     |
+  2. Writes a file of CpG methylation with 4 columns, name it \<WGBS_bed_basename>_CpG_methylation.bed Do not output CpG islands with 0X coverage.  
+    1. Column 1: chromosome  
+    2. Column 2: start coordinate  
+    3. Column 3: stop coordinate  
+    4. Column 4: methylation level  
 
-   3. Plots the distribution of CpG methylation levels using a histogram. Save this file as <span style= 'color: red; '> \<WGBS_bed_basename>_CpG_methylation_distribution.png</span >
+  3. Plots the distribution of CpG methylation levels using a histogram. SSave this file as <span style='color: red;'>\<WGBS_bed_basename></span><span style='color: blue;'>_CpG_methylation_distribution.png</span>
 
-   4. Plots the distribution of all CpGs for coverages from 0X to 100X as <span style= 'color: red; '> \<WGBS_bed_basename>_CpG_coverage_distribution.png</span >
-   5. Calculates and prints the fraction of CpGs with 0X coverage.
+  4. Plots the distribution of all CpGs for coverages from 0X to 100X as <span style= 'color: red; '> \<WGBS_bed_basename></span><span style='color: blue;'>_CpG_coverage_distribution.png</span >
+  5. Calculates and prints the fraction of CpGs with 0X coverage.
   
   The usage of the script will be: 
   ```bash 
@@ -200,7 +199,7 @@ Paste your commands in your README
 
 **Extra Credit Questions**
 
-Question 1:
+Question 1:  
 How does the H3K4me3 signal differ in promoter-CGIs and non-promoter-CGIs?
 
 Question 2: 
@@ -216,22 +215,22 @@ $ subDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignme
 ```
 
  - All scripts you wrote:
-  - analyze_WGBS_methylation.py
-  - analyze_CGI_methylation.py
-  - generate_promoters.py
+    - analyze_WGBS_methylation.py 
+    - analyze_CGI_methylation.py
+    - generate_promoters.py
  - All output files:
-  - BGM_WGBS_CpG_methylation.bed 
-  - BGM_WGBS_methylation_distribution.png 
-  - BGM_WGBS_CpG_coverage_distribution.png 
-  - WGBS_CGI_methylation.bed 
-  - WGBS_CGI_methylation_distribution.png 
-  - refGene_promoters.bed 
-  - promoter_CGI.bed 
-  - non_promoter_CGI.bed 
- - Your completed README 
+    - BGM_WGBS_CpG_methylation.bed 
+    - BGM_WGBS_methylation_distribution.png 
+    - BGM_WGBS_CpG_coverage_distribution.png 
+    - WGBS_CGI_methylation.bed 
+    - WGBS_CGI_methylation_distribution.png 
+    - refGene_promoters.bed 
+    - promoter_CGI.bed 
+    - non_promoter_CGI.bed 
+ - Your completed README.txt  
   
 
-* Extra Credit Submission *
+**Extra Credit Submission**
 
 - All scripts you wrote:
   - analyze_h3K4me3_scores.py
@@ -240,4 +239,5 @@ $ subDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignme
   - H3K4me3_RPKM_non_promoter_CGI.bed
   - H3K4me3_RPKM_promoter_CGI_and_H3K4me3_RPKM_non_promoter_CGI.png
 - Extra credit answers to the README.txt
+
 
