@@ -1,6 +1,6 @@
 
 
-## Assignment 3: Sequence technology
+## Assignment 3: Sequence Comparison
 
 **Due date: Friday, 02/07 11:59pm**
 
