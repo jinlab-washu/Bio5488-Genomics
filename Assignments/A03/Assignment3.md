@@ -38,7 +38,7 @@ chromosome 22 and provide the following information:
     4) How many gaps are there in hg38? How many in CHM13? Please submit and
  plot gap size distribution in hg38: y-axis: number; x-axis: size. Hint: just count
  stretches of Ns.
- Please be sure to name the output plot **hg38-chr22_gap_distribution.png**
+ Please be sure to name the output plot e.g. hg38-chr22_gap_distribution.png
 
 **Small Extra credit opportunity**: 
 In addition to the standard histogram, display the distribution in a more visually pleasant 
