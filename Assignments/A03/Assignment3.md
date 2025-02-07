@@ -89,7 +89,9 @@ the two.
 
 What is the percent of unique reads out of total mappable reads as well as the percent 
 of multi-mapped out of total mappable reads for both hg38 and CHM13? Provide an 
-explanation for any differences you observe in either rate between the two assemblies. 
+explanation for any differences you observe in either rate between the two assemblies.
+
+
 A common step during the processing of data prior to analysis is the removal of 
 duplicate reads present in the output sam file. Samtools is a suite of tools that allows us 
 to evaluate and remove these duplicates. 
