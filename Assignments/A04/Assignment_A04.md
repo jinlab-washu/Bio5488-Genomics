@@ -37,7 +37,7 @@ Copy them to your home directory.
 ```bash
 $ cp \
   /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Submissions/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Users/<username>/
 ```
 **Notes**
 * All plots must have informative **axis labels, titles, etc.** 
