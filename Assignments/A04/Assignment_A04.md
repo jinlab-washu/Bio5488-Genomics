@@ -169,7 +169,7 @@ Use this chromosome 21 fasta file:
 
  **Question 5**
  
- What is a possible biological explanation for the difference in CpG frequencies? Interpret your results from parts 1.3.0 and 1.3.1: what are the “simple rules” for describing regulation by DNA methylation in promoters?
+ What is a possible biological explanation for the difference in CpG frequencies? Interpret your results from parts 2.C and 2.D : what are the “simple rules” for describing regulation by DNA methylation in promoters?
 
  --- 
 
