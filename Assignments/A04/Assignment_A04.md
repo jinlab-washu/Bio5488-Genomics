@@ -145,7 +145,7 @@ Write a script called `generate_promoters.py` that uses a bed file of gene coord
 
  ### 2.C 
 
- Calculate the average CpG methylation level for each promoter-CGI and non-promoter-CGI. Save these files as `average_promoter_CGI_methylation.bed` and `average_non_promoter-CGI_methylation.bed` \(Hint: see your commands for part 1.A)
+ Calculate the average CpG methylation level for each promoter-CGI and non-promoter-CGI. You will need to use bedtools intersect again. Save these files as `average_promoter_CGI_methylation.bed` and `average_non_promoter-CGI_methylation.bed` \(Hint: see your commands for part 1.A)
 
  Paste your commands for creating these files in your README. 
 
