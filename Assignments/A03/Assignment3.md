@@ -117,7 +117,7 @@ additional flags to answer the following question.
 **Question 6** 
 
 What is the fraction of de-duplicated reads in total mapped reads? and compare 
-between hg38 and CHM13. 
+between hg38 and CHM13. Why is there (or not) a difference between reference genomes?
 
 **Extra Credit opportunity**: 
 Write a python script that parses through a bowtie2 aligned sam file and tallies the 
