@@ -123,7 +123,7 @@ Calculate the Euclidean distance matrix for your samples using the normalized da
 What do you expect to see? 
 
 **EC Question 2**
-What did uyou actually see? If you did not find what you expected, what sorts of variation could account for this? 
+What did you actually see? If you did not find what you expected, what sorts of variation could account for this? 
 
 ---
 
