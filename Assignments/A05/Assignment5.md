@@ -72,19 +72,19 @@ Read the `counts_per_million` and `library_sizes` functions to understand what t
 
 ### Part 1: Data filtering
 You will need to use the functions above to complete `gene_expression.py`
-To filter the data, you will need to remove genes that provide little to no information about the amount of gene expression. Therefore, remove genes that have counts in all samples. To do so, create a new dictionary with genes that pass your filter. ** Do not alter the orgiinal data file!!! ** For each filtering step, you should save the newly filtered data in a new dictionary
+To filter the data, you will need to remove genes that provide little to no information about the amount of gene expression. Therefore, remove genes that have counts in all samples. To do so, create a new dictionary with genes that pass your filter. ** Do not alter the original data file!!! ** For each filtering step, you should save the newly filtered data in a new dictionary
 
 **Question 1:** How many genes are left after removing genes with zero expression in all samples?
 
-Next, caclculate the counts per million (cpm) for each gene left in your data using the `counts_per_million` function. This function returns a dictionary similar to the raw counts dictionary but with cpm values instead. 
-Apply the `counts_per_million` function to your data tthe passed the first filter. Now create a new dictionary of raw counts by including gnes that pass your second filter. The second filter should not let a gene through if 20 or more (>=20) samples have cpm <1. (This should generate a dictionaru with raw counts, not cpm values).
+Next, calculate the counts per million (cpm) for each gene left in your data using the `counts_per_million` function. This function returns a dictionary similar to the raw counts dictionary but with cpm values instead. 
+Apply the `counts_per_million` function to your data tthe passed the first filter. Now create a new dictionary of raw counts by including gnes that pass your second filter. The second filter should not let a gene through if 20 or more (>=20) samples have cpm <1. (This should generate a dictionary with raw counts, not cpm values).
 
 **Question 2:** How many genes are left after removing genes where 20 or more samples have cpm <1? 
 
 
 ---
 ### Part 2: Data visualization
-Plot the library sizes (total counts) for each sample using the raw counts for the genes left after filtering. For full credit, make sure the x-acis, y-acis, and the plot itsellf have information titles. The y-axis should have libary size reported as millions of counts. Save your plot as 'library_size.png`
+Plot the library sizes (total counts) for each sample using the raw counts for the genes left after filtering. For full credit, make sure the x-axis, y-axis, and the plot itself have information titles. The y-axis should have libary size reported as millions of counts. Save your plot as 'library_size.png`
 
 **Question 3:** What is the range of library sizes (min, max)?
 
@@ -93,7 +93,7 @@ Plot the library sizes (total counts) for each sample using the raw counts for t
 
 To normalize your data, use an upper quartile normalization of the raw counts left after filtering. Use the `upper_quartile_norm` function to normalize the data you have left after the filtering steps. Write additional code to redo the total counts plot from Part 2 using the normalized count data. Save your new plot as `library_size_normalized.png` 
 
-**Question 4:** What is the rang eof library sizes after normalization (min, max)?
+**Question 4:** What is the range of library sizes after normalization (min, max)?
 
 **Question 5:** Compare the two libary size bar charts you made. How did the distribution of library sizes change after normalization? Briefly discuss why it is important to normalize your RNA-seq data.
 
