@@ -81,14 +81,14 @@ bowtie2 <write your options here. Note that the reads in test-500k.fq are unpair
 
 **Question 4** 
 
-What is the number of mappable reads, non-mappable reads, uniquely-mapped reads, 
+What is the number of mapped reads, non-mapped reads, uniquely-mapped reads, 
 for both hg38 and CHM13? Explain any similarities/differences you observe between 
 the two. 
 
 **Question 5** 
 
-What is the percent of unique reads out of total mappable reads as well as the percent 
-of multi-mapped out of total mappable reads for both hg38 and CHM13? Provide an 
+What is the percent of unique reads out of total mapped reads as well as the percent 
+of multi-mapped out of total mapped reads for both hg38 and CHM13? Provide an 
 explanation for any differences you observe in either rate between the two assemblies.
 
 
@@ -116,7 +116,7 @@ additional flags to answer the following question.
 
 **Question 6** 
 
-What is the fraction of de-duplicated reads in total mappable reads? and compare 
+What is the fraction of de-duplicated reads in total mapped reads? and compare 
 between hg38 and CHM13. 
 
 **Extra Credit opportunity**: 
