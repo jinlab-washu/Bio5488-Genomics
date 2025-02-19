@@ -45,14 +45,14 @@ $ cd ${classDir}/A05/Users/<WUSTLKEY>
  Copy the incomplete scripts from the Assignment folder to your work directory.
 All files can be found in 
 ```bash
-/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/
+/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/
 ```
 Copy them to your home directory. 
 
 ```bash
 $ cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/* \
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Users/<username>/
 ```
 There are prompts in `gene_expression.py` where the code needs to be edited by you (look for TODOs and comments in the script).
 The data is stored in a series of dictionaries as you filter and normalize. The keys of these dictionaries are gene names. The value associated with each key (in this case gene) will be a list containing the expression levels of theat gene found in each samople in your study. 
