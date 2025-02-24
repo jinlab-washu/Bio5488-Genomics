@@ -19,9 +19,9 @@ When you're done, copy over your final files to the submissions directory: ```/s
 **1. Copy files to your working directory.**
    
 ```bash
-$ cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
+cp \
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/ \
+  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/
 ```
    Four files in total (chr22.fa, reads.fq, nuc_count_FINAL.py, README.txt) should be in the folder.
    
@@ -30,8 +30,8 @@ $ cp \
 Here, we're showing how to do this in a command-line based text editor named vim. You can use any text editor you want, though!
 
 ```bash
-$ cd ~ # go to your the home folder
-$ vim .bashrc
+cd ~ # go to your the home folder
+vim .bashrc
 ```
 
 There will be a section titled as:
@@ -78,27 +78,27 @@ We can combine these in a single command.
 **3. Specify the working path for the Docker container**
    
 ```bash
-$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/ /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/'
+$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01
 ```
 
 **4. Create the Docker container**
 
 You can only submit bsub jobs from you home directory!
 ```bash
-$ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash
+bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash
 ```
 
 **5.  Activate conda environment and enter your working directory**
 
 ```bash
-$ conda activate bio5488
-$ cd /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
+conda activate bio5488
+cd /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
 ```
 If this returns a CondaError, you can code the path to the tools each time you use it. Ex:
 ```bash
-$ /opt/conda/envs/bio5488/bin/python3
-$ /opt/conda/envs/bio5488/bin/bowtie-2
-$ /opt/conda/envs/bio5488/bin/bedtools
+ /opt/conda/envs/bio5488/bin/python3
+ /opt/conda/envs/bio5488/bin/bowtie-2
+ /opt/conda/envs/bio5488/bin/bedtools
 ```
 
 Now you are ready for sequence alignment!
