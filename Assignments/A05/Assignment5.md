@@ -14,8 +14,8 @@ The goal of this assignment is to compare RNA-seq data for 20 subjects at risk o
 
 **Always** remember to use an interactive job to run command-line tools (like python, bowtie2, bedtools) on the RIS. Once you submit an interactive job, you must activate your conda enrivonment to use tools and dependencies within the docker image. 
  ```bash
- $ bsub -ls -q -workshop-interactive -G -compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash 
- $ conda activate bio5488
+ bsub -ls -q -workshop-interactive -G -compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash 
+ conda activate bio5488
 ```
 
  If the command line returns a CondaError when you attempt to activate the conda environment, you can hardcode the path to the tool. Ex:
@@ -31,12 +31,12 @@ classDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignme
 ```
 View the contents:
 ```bash
-$ ls -vlh ${classDir}
-$ ls -vlh ${classDir}/*
+ls -vlh ${classDir}
+ls -vlh ${classDir}/*
 ```
 Navigate to your working directory:
  ```bash
-$ cd ${classDir}/A05/Users/<WUSTLKEY>
+cd ${classDir}/A05/Users/<WUSTLKEY>
  ```
 
 
@@ -50,7 +50,7 @@ All files can be found in
 Copy them to your home directory. 
 
 ```bash
-$ cp \
+cp \
   /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/* \
   /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Users/<username>/
 ```
