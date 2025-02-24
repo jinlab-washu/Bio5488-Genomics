@@ -14,7 +14,7 @@ The goal of this assignment is to compare RNA-seq data for 20 subjects at risk o
 
 **Always** remember to use an interactive job to run command-line tools (like python, bowtie2, bedtools) on the RIS. Once you submit an interactive job, you must activate your conda enrivonment to use tools and dependencies within the docker image. 
  ```bash
- bsub -ls -q -workshop-interactive -G -compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash 
+ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488:0.0)' /bin/bash 
  conda activate bio5488
 ```
 
