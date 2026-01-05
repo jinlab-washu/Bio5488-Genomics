@@ -7,7 +7,7 @@
   * Identify your WUSTL Key Username and Password:
     * To log into the RIS you must have a WUSTL Key and password\. Your login information will usually match that of your WUSTL Key Login unless specified otherwise\.
 
-<p align="center"><img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login0.png"></p> 
+<p align="center"><img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login0.png"></p> 
 
 ---
 * ### Step 2:
@@ -16,7 +16,7 @@
       * You can automatically connect to the RIS server if you are on WUSTL Secure Wi\-Fi:
         * The “Username” and “Password” to this network will Be your WUSTL Key Login\.   <span style="color:#007360"> _[\(See Previous Step)](slide2.xml)_ </span>  <span style="color:#007360"> </span>
         
-        <p align="center"><img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login1.png"></p> 
+        <p align="center"><img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login1.png"></p> 
     
     * VPN  with Cisco Ready Connect \(required\):
       * Follow the following guides\, based on your OS\, to download and install Cisco AnyConnect Client and log into WUSTL’s VPN:
@@ -34,42 +34,42 @@
         * You are hard wired to the Ethernet port\(s\) located on the walls of a room\.
           * These ports are typically located by outlets and may look something like the following image:
          
-            <p align="center"><img width="400"  src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login2.jpg"></p>
+            <p align="center"><img width="400"  src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login2.jpg"></p>
 
 ---
 ## SSH INTO WORKSPACE
 * ### Step 3 - MacOS:
   * Find your terminal:
   * Mac Users:
-    * Locate the <img width="25" src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login3.png"> icon at the top of your desktop:
+    * Locate the <img width="25" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login3.png"> icon at the top of your desktop:
 
-      <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login4.png">
+      <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login4.png">
     * Search for “terminal” and open:
       
-      <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login5.png">
+      <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login5.png">
 * <span style="color:#007360"> _[Skip to Step 4](error:ppt-link-parsing-issue)_ </span>
 
 
 * ### Step 3 -Linux:
   * Find your terminal:
   * Linux Users:
-    * Locate the <img width="30" src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login9.png"> “show application” icon on your desktop:
+    * Locate the <img width="30" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login9.png"> “show application” icon on your desktop:
  
-      <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login8.png">
+      <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login8.png">
     * Search for “terminal” and open:
 
-    <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login10.png">
+    <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login10.png">
 * <span style="color:#007360"> _[Skip to Step 4](error:ppt-link-parsing-issue)_ </span>
 
 * ### Step 3 -Windows:
   * Find your terminal:
   * Windows Users:
-    * Locate the <img width="30" src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login11.png">  “start” icon on your desktop:
+    * Locate the <img width="30" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login11.png">  “start” icon on your desktop:
  
-      <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login12.png"> 
+      <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login12.png"> 
     * Search for “terminal” and open:
 
-      <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login13.png"> 
+      <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login13.png"> 
 * <span style="color:#007360"> _[Skip to Step 4](error:ppt-link-parsing-issue)_ </span>
 ---
 * ### Step 4:
@@ -104,17 +104,17 @@
   You should be prompted to enter your password\. Your password should be your WUSTL Key Login password\, unless started otherwise by RIS:
   * MacOS Terminal:
   
-  <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login14.png">
+  <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login14.png">
 
 
   * Linux Terminal:
 
-  <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login15.png">
+  <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login15.png">
 
 
   * Windows Terminal:
 
-  <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login16.png">
+  <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login16.png">
 
 ---
 ## MOUNT INTO WORKSPACE
@@ -123,9 +123,9 @@
  * #### MacOS:
  
    * Mac Users:
-     * Locate the <img width="25" src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login3.png"> icon at the top of your desktop:
+     * Locate the <img width="25" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login3.png"> icon at the top of your desktop:
  
-       <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login4.png">
+       <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login4.png">
      * Select "GO" -> "Connect to Server..." :
        
        <img height="500" src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login17.png">
