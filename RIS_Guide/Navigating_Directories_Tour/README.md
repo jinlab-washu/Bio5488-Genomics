@@ -1,8 +1,8 @@
 >Created by Elle Mehinovic.
->Last modified [01-05-2024](01-05-2024).
-# Ris Guide: Navigating Directories Tour
+>Last modified [01-05-2026](01-05-2026).
+# Ris Guide: Navigating BIO5488 Assignments Directories Structure & Workflow Tour
 
-This is a guided tour of all major directories available to users while logged onto the RIS\. Each directory’s purpose and layout will be explained\, so please follow along via your command line\.
+This document explains the directory structure used for weekly assignments and how students should navigate, work on, and submit their files.\. Each directory’s purpose and layout will be explained\, so please follow along via your command line\.
 
 * Since the RIS utilizes a Linux operating system\, users can run basic Linux commands directly on their terminal\. Before we start\, here are some common commands we will be using throughout this tutorial that you may want to get familiar with:
     * <span style="color:#7030A0"> _pwd_ </span> :
@@ -63,66 +63,105 @@ Home Directories
   * What if my program needs to use /home/root?
     * Most programs will allow you to change your home directory\, if it doesn’t do so already\.  If root permissions are 100% needed\, there are ways to work around this via docker build\.
 
-## The Jin Lab Active Space
+## Assignment Directory Structure
 
-* Step 3:
-  * We are now going to navigate to our main active space:
-      * To navigate through different directories\, we will be using the  <span style="color:#7030A0"> _cd _ </span> command followed by the active space path\.
-        * In your terminal copy the following command and hit enter:
-         
-          ``` bash
-          cd  /storage1/fs1/jin810/Active
-          ```
+Under each assignment directory (e.g. `A00`, `A01`, …), you will see the following layout:
 
-
-        * After run the following command to list the current directory contents:
-          
-          ``` bash
-          ls -lsh  /storage1/fs1/jin810/Active
-          ```
-    * You will find that there are four main directories inside our active space: 	 <span style="color:#0000FF">Projects\, References\, testing\, and U19\_Data\_Core\.</span>
-      
-        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating4.png">
+```text
+A00
+|-- Assignment_Data
+|-- Submissions
+|   `-- Users
+|       `-- WUSTLKEY
+`-- Users
+    `-- WUSTLKEY
+```
 
 ---
 
-### Active Space and Directories
-  * What is the “Active Space”?
-    * Active space refers to any directories and subdirectories located in  <span style="color:#002060">/storage1/fs1/jin810/Active</span> \. This is where users may run jobs and store data\.
-  * How should I use the “Active Space”?
-    * The “Active Space” itself can be a mount point for LSF jobs but users should not be writing to the top\-level active location\, ie  <span style="color:#002060">/storage1/fs1/jin810/Active\.</span>  Instead\, users should use one of the four top level directories in their respective manner\.
-  * What are each of the top\-level directories for?
-    * Projects
-      * The “Projects” folder is where users put information regarding a project that is collaborative\, raw data\, execution scripts\, or finished\.
-    * References
-      * The “References”  folder holds data that is repeatedly used by multiple individuals
-    * testing
-      * The “testing” folder is where users will make their own personal directories\. Users can use their directory however they see is best fit\. Most users use this directory for testing purposes\, but  _ALL RAW DATA\, FINAL DATA\, AND SCRIPTS SHOULD BE INSIDE THE PROJECTS FOLDER_ \.
-    * U19\_Data\_Core
-      * This directory is for the U19 Data Core and some users may not have access to it
+## Directory Descriptions
 
+### `Assignment_Data/`
+This directory contains the files provided for that week’s assignment (starter scripts, datasets, instructions, etc.).
 
-  * How do I set up a folder inside the Projects directory?
-    * Here is an example of what the formatting inside a folder may be:
-      * _ANALYSIS:_
-        * Where analysis’s can be stored\. This includes presentations\, or any final conclusions\.
-      * _ARCHIVE:_
-        * Where to store data not needed anymore\, preferably compressed\.
-      * _CODE:_
-        * Code used to run any analysis or results\.
-      * _INPUT\_FILES:_
-        * Any input file needed including raw data\.
-      * _MISC:_
-        * Can be used for testing\, or however the users see fit\.
-      * _RESULTS:_
-        * Raw outputs from any code that was ran\.
-
-<img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating5.png">
+- **Do NOT edit files in this directory**
+- Treat this directory as read-only
+- Copy any required files into your personal working directory before making changes
 
 ---
-* ### Step 4:
-  * Currently we have two separate archive storage spaces:
-  * Either space is for saving closed projects\, raw data\, and other miscellaneous things\. The difference between the two spaces is the first active space is new while the second is our previous space\. Do not do anything here unless told otherwise\.
 
-<span style="color:#002060">/storage1/fs1/jin810/Archive</span>  <span style="color:#002060">	</span> & <span style="color:#002060">/storage1/fs1/jin810\_archive\_fs1/Archive</span>
+### `Users/WUSTLKEY/`
+This is **your personal working directory**, named after your WUSTL key.
+
+- Copy files from `Assignment_Data/` into this directory
+- Edit code, run commands, and generate results here
+- This directory is for active work only
+
+---
+
+### `Submissions/Users/WUSTLKEY/`
+This directory is used to **submit your completed work for grading**.
+
+- Copy only finalized files here
+- Files in this directory are what instructors will review
+- Do not submit intermediate or test files
+
+---
+
+## Example Assignment Layout
+
+Below is an example of what an assignment directory may look like after you have started working:
+
+```text
+A00
+|-- Assignment_Data
+|   |-- COPY_ME_example_assignment.py
+|   `-- README.txt
+|-- Submissions
+|   `-- Users
+|       `-- WUSTLKEY
+|           `-- WUSTLKEY_COMPLETED_example_assignment.py
+`-- Users
+    `-- WUSTLKEY
+        |-- COPY_ME_example_assignment.py
+        `-- COMPLETED_example_assignment.py
+```
+
+---
+
+## Recommended Workflow
+
+1. Copy required files from `Assignment_Data/` into `Users/WUSTLKEY/`
+2. Make edits and run all code in `Users/WUSTLKEY/`
+3. When finished, copy completed files into `Submissions/Users/WUSTLKEY/`
+
+---
+
+## Navigating to the Assignments Directory
+
+To navigate to the main assignments directory, run the following command in your terminal:
+
+```bash
+cd /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments
+```
+
+To list the available assignments:
+
+```bash
+ls -lsh
+```
+
+You should see directories named `A01`–`A14`, each corresponding to a weekly assignment.
+
+---
+
+## Notes
+
+- Your WUSTL key directory is created for you — do not rename it
+- Do not modify directory permissions
+- Do not work directly in `Assignment_Data/`
+- If you encounter permission issues, contact the course staff
+
+---
+
 
