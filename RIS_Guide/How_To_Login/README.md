@@ -128,7 +128,7 @@
        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS_Guide-How_To_Login4.png">
      * Select "GO" -> "Connect to Server..." :
        
-       <img height="500" src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login17.png">
+       <img height="500" src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login17.png">
  
      * Paste : smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/COURSE_NAME/Assignments/{ASSIGNMENT_WEEK} into bar (EX: smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A00).
         > If prompted enter your WUSTL_KEY and password
@@ -137,7 +137,7 @@
      * Press "Connect" button on bottom right corner
         > If prompted enter your WUSTL_KEY and password
         
-       <img  src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login18.png">
+       <img  src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login18.png">
  
 
  * #### CyberDuck:
@@ -154,7 +154,7 @@
      * Press "Connect" button on bottom right corner
         > If prompted enter your WUSTL_KEY and/or password
                
-       <img  src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login19.png">
+       <img  src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login19.png">
  
  * #### CyberDuck:
  
@@ -163,20 +163,20 @@
        
      * In "Connect To Server" Space paste : smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/COURSE_NAME/Assignments/{ASSIGNMENT_WEEK} (EX: smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A00) this will auto configure.
 
-        <img  src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login20.png">
+        <img  src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login20.png">
 
      * Press "Connect" button on bottom right corner, you should have a window pop up asking for more information:
        
      * If you see: WORKGROUP\Username paste: ACCOUNTS.AD.WUSTL.EDU\{WUSTUL_KEY} (replace with your WUSTL KEY) else if you see DOMAIN paste: ACCOUNTS.AD.WUSTL.EDU
        
-        <img  src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login21.png">
+        <img  src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login21.png">
 
 
      * Press "Connect" button on top right corner
         > If prompted enter your WUSTL_KEY and/or password
         
        
-       <img  src="https://github.com/LVMEHINOVIC/LabCode/blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login19.png">
+       <img  src="https://github.com/jinlab-washu/Bio5488-Genomics//blob/main/BIO5488/COURSE/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login19.png">
  ---
 
 ## Congratulations you now have logged onto to the Course RIS Space\.
