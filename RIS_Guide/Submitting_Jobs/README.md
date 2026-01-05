@@ -22,7 +22,7 @@ smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/As
 
     - You can check your current path\, use the _pwd_ command:
 
-        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Submitting_Jobs%20/images/RIS_Guide-Submitting_Jobs0.png">
+        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Submitting_Jobs/images/RIS_Guide-Submitting_Jobs0.png">
       Navigate your own directory following command\, and replacing placeholders with your course name, weekly assignment, and wustl key information:
         * _Format:_
           * cd<sup>1</sup>  /storage1/fs1/workshops/Active/BIO5488/{COURSE_NAME}<sup>2</sup>/Assignments/{ASSIGNMENT_WEEK}<sup>3</sup>/Users/{WUSTL_KEY}<sup>4</sup>
