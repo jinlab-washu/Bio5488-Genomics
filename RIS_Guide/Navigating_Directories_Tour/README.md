@@ -26,15 +26,15 @@ This is a guided tour of all major directories available to users while logged o
 
   * MacOS Terminal:
   
-  <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating0.png">
+  <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating0.png">
   
   * Linux Terminal:
  
-  <img width="1000" src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating1.png">
+  <img width="1000" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating1.png">
   
   * Windows Terminal:
  
-  <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating2.png">
+  <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating2.png">
 
 
 ---
@@ -43,7 +43,7 @@ This is a guided tour of all major directories available to users while logged o
   * Once you have logged into the RIS your will see YOUR home directory:
       * You can check your current path\, use the  <span style="color:#7030A0"> _pwd_ </span>  <span style="color:#7030A0"> </span> command:
    
-        <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating3.png">
+        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating3.png">
         
         * Your home directory will always be  <span style="color:#002060">/home/</span>  <span style="color:#A51416"> _\{_ </span>  <span style="color:#C00000"> _WUSTL\_KEY\}_ </span>  <span style="color:#C00000"> </span>
         
@@ -82,7 +82,7 @@ Home Directories
           ```
     * You will find that there are four main directories inside our active space: 	 <span style="color:#0000FF">Projects\, References\, testing\, and U19\_Data\_Core\.</span>
       
-        <img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating4.png">
+        <img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating4.png">
 
 ---
 
@@ -117,7 +117,7 @@ Home Directories
       * _RESULTS:_
         * Raw outputs from any code that was ran\.
 
-<img src="https://github.com/jinlab-washu/Getting_Started/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating5.png">
+<img src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/Navigating_Directories_Tour/images/RIS_Guide-Navigating5.png">
 
 ---
 * ### Step 4:
