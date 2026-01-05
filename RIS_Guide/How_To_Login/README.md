@@ -128,7 +128,7 @@
        <img  src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login4.png">
      * Select "GO" -> "Connect to Server..." :
        
-       <img  hight=500 src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login17.png">
+       <img  height="500" src="https://github.com/jinlab-washu/Bio5488-Genomics/blob/main/RIS_Guide/How_To_Login/images/RIS-GUIDE-How-To-Login17.png">
  
      * Paste : smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/COURSE_NAME/Assignments/{ASSIGNMENT_WEEK} into bar (EX: smb://storage1.ris.wustl.edu/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A00).
         > If prompted enter your WUSTL_KEY and password
