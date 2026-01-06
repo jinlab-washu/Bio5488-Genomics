@@ -81,7 +81,7 @@ Detailed instructions are provided within each assignment.
 All assignment work is completed **directly on RIS**. You should not run analyses locally on your laptop unless explicitly instructed.
 
 ### Working on Assignments
-- Each assignment has a designated location within the BIO 5488 course directory on RIS. SEE: ```/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments```
+- Each assignment has a designated location within the BIO 5488 course directory on RIS: ```/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments```
 - You will copy assignment materials into your personal working directory  
 - Analyses are run using the command line and, when required, submitted as jobs to compute nodes  
 - Output files (results, logs, figures) must be clearly organized and labeled  
