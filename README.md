@@ -2,9 +2,9 @@
 >Last modified [01-05-2026](01-05-2026).
 
 # BIO 5488: Genomics — Spring 2026  
-## Assignments & Lab (RIS)
+## Assignments (RIS)
 
-Welcome to the **BIO 5488 Genomics assignments and lab repository**. This GitHub repository supports the **assignment-driven lab component** of the course and focuses on helping you run genomic analyses using **WashU Research Infrastructure Services (RIS)**.
+Welcome to the **BIO 5488 Genomics assignments repository**. This GitHub repository supports the **assignment-driven component** of the course and focuses on helping you run genomic analyses using **WashU Research Infrastructure Services (RIS)**.
 
 This repository provides **local copies of assignment materials**, documents where those assignments already exist on RIS, and serves as a guide for navigating the RIS computing environment. It also explains how to organize and submit your work for grading.
 
@@ -28,7 +28,6 @@ Each assignment is a hands-on, computational exercise designed to introduce you 
 - Running analyses on shared compute infrastructure  
 - Organizing and documenting reproducible results  
 
-There is no separate wet lab component. All lab work is performed computationally through these assignments.
 
 ---
 
@@ -48,7 +47,7 @@ Materials in this repository should be treated as **reference copies**. You will
 
 ## GETTING STARTED WITH RIS
 
-All assignment and lab work for BIO 5488 is completed on **WashU Research Infrastructure Services (RIS)**. RIS provides:
+All assignment and work for BIO 5488 is completed on **WashU Research Infrastructure Services (RIS)**. RIS provides:
 
 - Secure storage for large genomic datasets  
 - Linux-based servers for computation  
