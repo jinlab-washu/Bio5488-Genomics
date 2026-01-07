@@ -2,8 +2,8 @@
 
 ### Counting Nucleotides and Determining if a Sequence is i.i.d.
 
-**Due Date:** Friday, 1/24, 11:59 PM  
-**Last Modified:** 1/16/2025
+**Due Date:** Friday, 1/23, 11:59 PM  
+**Last Modified:** 1/7/2026
 
 ---
 
@@ -30,7 +30,7 @@ Replace `<WUSTLKEY>` with your WUSTL username. After logging in, your prompt sho
 ### Assignments Directory
 Set the path to the class Assignments directory:
 ```bash
-classDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments
+classDir=/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments
 ```
 View the contents:
 ```bash
