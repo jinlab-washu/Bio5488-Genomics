@@ -2,9 +2,9 @@
 
 ## Assignment 3: Sequence Comparison
 
-**Due date: Friday, 02/07 11:59pm**
+**Due date: Friday, 02/06 11:59pm**
 
-Bio5488, Spring 2025 Last modified 01/25/25
+Bio5488, Spring 2026 Last modified 01/07/26
 
 **Face Off: hg38 versus CHM13.**
 
@@ -17,7 +17,7 @@ a closer look at the differences between hg38 and CHM13. For your convenience, c
 sequences from hg38 and CHM13 are provided here: 
 
 ```bash
-AssignmentDir="/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A03"
+AssignmentDir="/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A03"
 hg38="${AssignmentDir}/Assignment_Data/hg38-chr22.fa"
 CHM13="${AssignmentDir}/Assignment_Data/t2t-chr22.fa"
 ```
