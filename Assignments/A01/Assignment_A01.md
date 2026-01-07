@@ -1,4 +1,4 @@
-# Bio5488 SP2025: Assignment 1
+# Bio5488 SP2026: Assignment 1
 
 ### Counting Nucleotides and Determining if a Sequence is i.i.d.
 
