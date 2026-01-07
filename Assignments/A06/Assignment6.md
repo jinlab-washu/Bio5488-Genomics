@@ -1,9 +1,9 @@
-# Bio5488 SP2025: Assignment 6
+# Bio5488 SP2026: Assignment 6
 
 ### Gene Expression Week 2
 
-**Due Date:** Friday, 2/28, 11:59 PM  
-**Last Modified:** 2/20/2025
+**Due Date:** Friday, 2/27, 11:59 PM  
+**Last Modified:** 1/07/2026
 
 ---
 ## Overview
@@ -27,7 +27,7 @@ The goal of this assignment is to learn RNA-seq analyis using DESeq2.
 
  Set the path to the class Assignments directory:
 ```bash
-classDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments
+classDir=/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments
 ```
 View the contents:
 ```bash
@@ -44,14 +44,14 @@ $ cd ${classDir}/A06/Users/<WUSTLKEY>
  Copy the incomplete scripts from the Assignment folder to your work directory.
 All files can be found in 
 ```bash
-/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A06/Assignment_Data/
+/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A06/Assignment_Data/
 ```
 Copy them to your home directory. 
 
 ```bash
 $ cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A06/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A06/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A06/Assignment_Data/* \
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A06/Users/<username>/
 ```
 ### RIS R Studio Setup Instructions ###
 
