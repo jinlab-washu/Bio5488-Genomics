@@ -1,11 +1,11 @@
-# Bio5488 SP2025: Assignment 4
+# Bio5488 SP2026: Assignment 4
 
 
 ## Assignment 4: Integrative epigenomics analysis
 
-**Due date**: Friday, 2/14 11:59pm
+**Due date**: Friday, 2/13 11:59pm
 
-**Last Modified:**  01/28/25
+**Last Modified:**  01/07/26
 
 ---
 
@@ -30,14 +30,14 @@ File descriptions can be found at the end of this markdown file. These files are
 
 All files can be found in 
 ```bash
-/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/
+/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/
 ```
 Copy them to your home directory. 
 
 ```bash
 $ cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A04/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A04/Assignment_Data/* \
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A04/Users/<username>/
 ```
 **Notes**
 * All plots must have informative **axis labels, titles, etc.** 
