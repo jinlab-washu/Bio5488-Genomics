@@ -1,9 +1,9 @@
-# Bio5488 SP2025: Assignment 5
+# Bio5488 SP2026: Assignment 5
 
 ### Gene Expression
 
-**Due Date:** Friday, 2/21, 11:59 PM  
-**Last Modified:** 2/11/2025
+**Due Date:** Friday, 2/20, 11:59 PM  
+**Last Modified:** 1/07/2026
 
 ---
 ## Overview
@@ -27,7 +27,7 @@ The goal of this assignment is to compare RNA-seq data for 20 subjects at risk o
 
  Set the path to the class Assignments directory:
 ```bash
-classDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments
+classDir=/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments
 ```
 View the contents:
 ```bash
@@ -45,14 +45,14 @@ cd ${classDir}/A05/Users/<WUSTLKEY>
  Copy the incomplete scripts from the Assignment folder to your work directory.
 All files can be found in 
 ```bash
-/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/
+/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/
 ```
 Copy them to your home directory. 
 
 ```bash
 cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/* \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A05/Users/<username>/
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A05/Assignment_Data/* \
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A05/Users/<username>/
 ```
 There are prompts in `gene_expression.py` where the code needs to be edited by you (look for TODOs and comments in the script).
 The data is stored in a series of dictionaries as you filter and normalize. The keys of these dictionaries are gene names. The value associated with each key (in this case gene) will be a list containing the expression levels of theat gene found in each samople in your study. 
