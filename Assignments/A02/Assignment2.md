@@ -2,17 +2,17 @@
 
 ## Assignment 2: Sequence technology
 
-**Due date: Friday, 1/31 11:59pm**
+**Due date: Friday, 1/30 11:59pm**
 
-Bio5488, Spring 2025 Last modified 01/22/25
+Bio5488, Spring 2026 Last modified 01/07/26
 
 You are provided with sequencing reads from an enrichment sequencing experiment.
 
 Map the reads back to chr22 and identify what is enriched.
 
-Work in your working directory: ``` /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/ ```
+Work in your working directory: ``` /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Users/<username>/ ```
 
-When you're done, copy over your final files to the submissions directory: ```/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/ ```
+When you're done, copy over your final files to the submissions directory: ```/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Submissions/Users/<username>/ ```
 
 **Don't forget your readme file!**
 
@@ -20,8 +20,8 @@ When you're done, copy over your final files to the submissions directory: ```/s
    
 ```bash
 cp \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/ \
-  /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Assignment_Data \
+  /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Users/<username>/ 
 ```
    Four files in total (chr22.fa, reads.fq, nuc_count_FINAL.py, README.txt) should be in the folder.
    
