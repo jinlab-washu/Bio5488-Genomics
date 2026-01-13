@@ -60,15 +60,15 @@ At a high level, completing assignments in this course involves:
 
 1. Logging into RIS
    
-   👉 [RIS Guide: How to Log In](RIS_GUIDE/How_To_Login/README.md)
+   👉 [RIS Guide: How to Log In](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_Guide/How_To_Login/README.md)
    
 2. Locating the BIO 5488 course directories and Organizing results for submission
    
-   👉 [RIS Guide: Navigating BIO5488 Assignments Directories Structure & Workflow Tour](RIS_GUIDE/Navigating_Directories_Tour/README.md)
+   👉 [RIS Guide: Navigating BIO5488 Assignments Directories Structure & Workflow Tour](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_GUIDE/Navigating_Directories_Tour/README.md)
    
 3. Running analysis commands or jobs on RIS
    
-   👉 [RIS Guide: Submitting Jobs](RIS_GUIDE/Submitting_Jobs/README.md)
+   👉 [RIS Guide: Submitting Jobs](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_GUIDE/Submitting_Jobs/README.md)
 
 
 Detailed instructions are provided within each assignment.
