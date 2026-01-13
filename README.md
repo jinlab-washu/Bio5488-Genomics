@@ -64,7 +64,7 @@ At a high level, completing assignments in this course involves:
    
 2. Locating the BIO 5488 course directories and Organizing results for submission
    
-   👉 [RIS Guide: Navigating BIO5488 Assignments Directories Structure & Workflow Tour](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_GUIDE/Navigating_Directories_Tour/README.md)
+   👉 [RIS Guide: Navigating BIO5488 Assignments Directories Structure & Workflow Tour](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_Guide/Navigating_Directories_Tour/README.md)
    
 3. Running analysis commands or jobs on RIS
    
