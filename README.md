@@ -68,7 +68,7 @@ At a high level, completing assignments in this course involves:
    
 3. Running analysis commands or jobs on RIS
    
-   👉 [RIS Guide: Submitting Jobs](https://github.com/jinlab-washu/Bio5488-Genomics/tree/main/RIS_GUIDE/Submitting_Jobs/README.md)
+   👉 [RIS Guide: Submitting Jobs](https://github.com/jinlab-washu/Bio5488-Genomics/edit/main/RIS_Guide/Submitting_Jobs/README.md)
 
 
 Detailed instructions are provided within each assignment.
