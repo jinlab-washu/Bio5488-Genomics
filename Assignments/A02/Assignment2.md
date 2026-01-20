@@ -78,7 +78,7 @@ We can combine these in a single command.
 **3. Specify the working path for the Docker container**
    
 ```bash
-$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01:/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01
+$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01:/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01
 ```
 
 **4. Create the Docker container**
@@ -92,7 +92,7 @@ bsub -Is -q workshop-interactive -G compute-workshop -a 'docker(takinwe1/bio5488
 
 ```bash
 conda activate bio5488
-cd /storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
+cd /storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Users/<username>/
 ```
 If this returns a CondaError, you can code the path to the tools each time you use it. Ex:
 ```bash
