@@ -78,7 +78,7 @@ We can combine these in a single command.
 **3. Specify the working path for the Docker container**
    
 ```bash
-$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01:/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01'
+$ export LSF_DOCKER_VOLUMES='/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Users/<username>:/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A02/Users/<username>'
 ```
 
 **4. Create the Docker container**
