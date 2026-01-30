@@ -153,9 +153,9 @@ Using the script “nuc_count_FINAL.py”, identify the frequency of each nucleo
 
 #### Question 2:
 
-Report the enrichment of all single and di-nucleotides.
+Report the enrichment of all single and di-nucleotides. Enrichment should be calculated as a fold change against an expected background calculated using previously measured values.
 
-Describe how you calculated the enrichment. Mention what the dataset is enriched for and interpret it. What assay(e.g., RNA-seq, CHIP-seq, WGBS..) do you think these data came from?
+Describe how you calculated the enrichment. Mention what the dataset is enriched for and interpret it. What assay(e.g., RNA-seq, CHIP-seq, WGBS..) do you think these data came from given what sequences these assays themselves enrich for?
 
 What to turn in:
 * Output files
