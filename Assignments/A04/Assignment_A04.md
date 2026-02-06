@@ -70,7 +70,7 @@ Write a script called "analyze_WGBS_methylation.py that takes a WGBS bed file an
 
   3. Plots the distribution of CpG methylation levels using a histogram. SSave this file as <span style='color: red;'>\<WGBS_bed_basename></span><span style='color: blue;'>_CpG_methylation_distribution.png</span>
 
-  4. Plots the distribution of all CpGs for coverages from 0X to 100X as <span style= 'color: red; '> \<WGBS_bed_basename></span><span style='color: blue;'>_CpG_coverage_distribution.png</span >
+  4. Plots the distribution of all CpGs for coverages from 0X to 100X as <span style= 'color: red; '> \<WGBS_bed_basename></span><span style='color: blue;'>_CpG_coverage_distribution.png</span > Make sure to include the sites with 0x coverage, do not use the previously generated \<WGBS_bed_basename>_CpG_methylation.bed
   5. Calculates and prints the fraction of CpGs with 0X coverage.
   
   The usage of the script will be: 
