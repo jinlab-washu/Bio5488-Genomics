@@ -64,7 +64,7 @@ Open up `gene_expression.py` and **read through first** to get a sense of what y
 - Make the script exit if the wrong number of input parameters are used.
 
 Read the `counts_per_million` and `library_sizes` functions to understand what they do. Then:
- - Fill in the code for the `translate_dictionary` function, This function will translate your data from having one key per gene to one key per sample. In the translated dictionary, the value assocaited with each key (sample) will be that sample's gene expression levels at each gene.
+ - Fill in the code for the `translate_dictionary` function, This function will translate your data from having one key per gene to one key per sample. In the translated dictionary, the value associated with each key (sample) will be that sample's gene expression levels at each gene.
  - Add comments to the code in the `upper_quartile_norm` function to explain what each line does.
  - Write a function to calculate Fisher's Linear Discriminant (and add comments!) for all genes in your count dictionary. Call your function `fishers_linear_discriminant` Remeber that functions should be able to work with different data sets so make sure that your function is flexible and could work with data with different numbers of before and after samples.
 
