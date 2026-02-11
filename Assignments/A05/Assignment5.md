@@ -72,7 +72,7 @@ Read the `counts_per_million` and `library_sizes` functions to understand what t
 
 ### Part 1: Data filtering
 You will need to use the functions above to complete `gene_expression.py`
-To filter the data, you will need to remove genes that provide little to no information about the amount of gene expression. Therefore, remove genes that have counts in all samples. To do so, create a new dictionary with genes that pass your filter. ** Do not alter the original data file!!! ** For each filtering step, you should save the newly filtered data in a new dictionary
+To filter the data, you will need to remove genes that provide little to no information about the amount of gene expression. Therefore, remove genes that have zero counts in all samples. To do so, create a new dictionary with genes that pass your filter. ** Do not alter the original data file!!! ** For each filtering step, you should save the newly filtered data in a new dictionary
 
 **Question 1:** How many genes are left after removing genes with zero expression in all samples?
 
