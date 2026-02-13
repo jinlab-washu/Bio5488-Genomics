@@ -87,7 +87,7 @@ the two.
 
 **Question 5** 
 
-What is the percent of unique reads out of total mapped reads as well as the percent 
+What is the percent of uniquely mapped reads out of total mapped reads as well as the percent 
 of multi-mapped out of total mapped reads for both hg38 and CHM13? Provide an 
 explanation for any differences you observe in either rate between the two assemblies.
 
