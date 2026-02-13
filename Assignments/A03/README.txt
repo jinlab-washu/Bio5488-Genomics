@@ -45,10 +45,10 @@ Question 4:
 
 -
 Question 5:
-{percent of uniquely-mapped reads for hg38 and CHM13}
+{percent of uniquely-mapped reads out of total mapped reads for hg38 and CHM13}
 
 -
-{percent of multi-mapped reads for hg38 and CHM13}
+{percent of multi-mapped out of total mapped reads for hg38 and CHM13}
 
 -
 {explanation}
@@ -107,6 +107,7 @@ Question 10:
 
 -
 Suggestions:
+
 {What programming and/or genomics topics should the TAs cover in the next class that would have made this assignment go smoother?}
 
 -
