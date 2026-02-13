@@ -223,7 +223,9 @@ $ subDir=/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignme
     - BGM_WGBS_methylation_distribution.png 
     - BGM_WGBS_CpG_coverage_distribution.png 
     - WGBS_CGI_methylation.bed 
-    - WGBS_CGI_methylation_distribution.png 
+    - WGBS_CGI_methylation_distribution.png
+    - average_promoter_CGI_methylation.png
+    - average_non_promoter_CGI_methylation.png
     - refGene_promoters.bed 
     - promoter_CGI.bed 
     - non_promoter_CGI.bed 
