@@ -1,0 +1,347 @@
+---
+title: "SnoN KO RNA-seq PcaHubert outlier removal"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## set your own working directory here
+## here are some examples of how to set working directory
+# MAC
+setwd("~/Bio5488_Homework_RNA_seq_InputFiles")
+
+#PC
+setwd("C:/gzhao/Department_Genetics/Zhao_Guoyan_Teaching/2025_Genetics_Bio5488/Bio5488_Homework_RNA_seq/Bio5488_Homework_RNA_seq_InputFiles")
+
+# RIS
+setwd("/home/gzhao/Bio5488_Homework_RNA_seq")
+options(encoding = "UTF-8")
+
+
+```{r}
+setwd("<directory_to_assignment>")
+```
+
+```{r}
+# load libraries
+# syntax for installing libraries
+# install.packages("<packagename>")
+
+library(DESeq2)
+library(RColorBrewer) # colorRampPalette()
+library(pheatmap) # for pheatmap()
+library(rrcov) # for pcaGrid
+library(ggfortify)
+library(gplots) 
+library(ggplot2) # qplot()
+library(dplyr) # for mutate
+library(ggrepel) # for geom_text_repel
+```
+
+```{r}
+####################################################
+## expression table has the format with one column of any sort of gene/preobe IDs, and one column per sample after. 
+
+expmatrix <- read.table("SnoNKO_HTseq_table.txt", header=TRUE, sep="\t")
+
+# explore the input data table to understand what information was stored in 
+# the rows and columns.
+```
+
+
+
+# ============================ TODOs  ===========================
+# Part 1 — Understand your data and put it into the correct format
+
+
+```{r}
+# Question 1: 
+# take a look at the first 10 lines of the table. What was the content? 
+# take a look at the last 10 lines of the table. What was the content? 
+# Find our which rows in the input table do you need to remove and remove them from the count matrix.
+
+# write your solution here:
+
+
+
+```
+
+
+```{r}
+# assigned gene names to row names, remove the column "gene"
+rownames(expmatrix) <- expmatrix$gene
+expmatrix$gene <- NULL
+
+# remove Ensemble ID version number such as ENSMUSG00000000037.16 to ENSMUSG00000000037
+rownames(expmatrix) <- sapply(strsplit(rownames(expmatrix), "\\."), `[`, 1)
+```
+
+```{r}
+# to get protein coding genes from ensembl
+proteinCodingMouseGenes="proteinCodingMouseGenes.Rda"
+load(proteinCodingMouseGenes)
+
+# subset experimental data to use only protein coding genes
+data_Protein_coding <- expmatrix[(rownames(expmatrix) %in% (mouseProteinCodingGenes$ensembl_gene_id)),]
+
+```
+
+```{r design table}
+# read in metadata file and take a look at the content 
+# which has titles of each column - such as KO, WT
+
+design_table <- read.table("SnoNKO_metadata.txt", header=TRUE)
+
+# make sample names as row names
+rownames(design_table) <- design_table$Sample
+
+# make the value in "condition" column factors
+design_table$condition <- as.factor(design_table$condition)
+
+# It is absolutely critical that the column names of the count matrix and the row names of the metadata table (information about samples) are in the same order with exactly the same name. 
+# We examine the count matrix and metadata to see if they are consistent in terms of sample order.
+# run the following code. What's the result?
+all(rownames(design_table) %in% colnames(data_Protein_coding))
+all(rownames(design_table) == colnames(data_Protein_coding))
+
+# As they are not the same, we need to re-name the column names one or the other so that they are consistent in terms of sample name and order. 
+
+# The column names of the count matrix did not match the sample names 
+# in the metadata table.  
+# rename the column names to make it match the row names of the metadata table
+colnames(data_Protein_coding) <- c("KO2_EGL_6", "KO3_EGL_1", "KO4_EGL_3", "KO5_EGL_2", "KO6_EGL_4", "KO8_EGL_5", "WT1_EGL_5", "WT2_EGL_1", "WT3_EGL_6", "WT5_EGL_4", "WT6_EGL_3", "WT7_EGL_2")
+
+# check to make sure all column names of the count matrix is in the same order 
+# as in rownames of sample metadata table and have the same name
+# run the same code. What's the result?
+all(rownames(design_table) %in% colnames(data_Protein_coding))
+all(rownames(design_table) == colnames(data_Protein_coding))
+
+```
+
+
+
+
+# ============================ TODOs  ===========================
+# Part 2 — create DESeq2 data object
+```{r}
+# Question 2: 
+# construct DESeq object
+# write your solution here by calling DESeqDataSetFromMatrix()
+
+#write your solutions here
+ddsCount  <- DESeqDataSetFromMatrix()
+
+```
+
+
+```{r}
+# Question 3: 
+# it is prefered in R that the first level of a factor be the reference level (e.g. control, or untreated samples). In this case WT is the control.
+# use of "relevel" function to change the reference level
+
+# Find out the current levels of the two conditions. If "WT" is not the reference level use of "relevel" function to change the "WT" to be the reference level.  
+
+# write your solution here:
+ddsCount$condition <- relevel()
+
+
+
+```
+
+
+
+# ============================ TODOs  ===========================
+# Part 3 — filtering, normalization
+```{r}
+
+# Question 4: 
+# pre-filtering to keep only rows that have at least 10 reads total. How many genes are left after removing genes with zero expression in all samples?
+
+# write your solution here:
+
+dds <- DESeq(ddsCount)
+
+
+```
+
+
+```{r}
+# rlog is more robust in the case when the size factors vary widely. The transformation is useful when checking for outliers or as input for machine learning techniques such as clustering or linear discriminant analysis. 
+# We choose to use Rlog transformation 
+
+# perform rlog transformation 
+rld <- rlog(dds)
+```
+
+
+
+# ============================ TODOs  ===========================
+# Part 4 — Sample distances and outlier detection
+
+
+
+```{r}
+# Question 5: 
+# use rlog transformation to calculate the Euclidean distance between samples and visualize the distances in a heatmap. Save your distance heatmap as pheatmap_before_outlier_removal.png  
+# your solution here:
+
+
+```
+
+```{r}
+# Question 6: 
+# use PCA plot to visualize the distances. Save your distance heatmap as PCA_Plot_before_outlier_removal.png  
+# write your solution here:
+
+
+
+```
+
+
+
+
+# ============================ TODOs  ===========================
+
+```{r}
+# Question 7: 
+# use rld and PcaGrid to detect outliers in the dataset. What are the samples that were considered as “outliers”? Plot PCA diagnostic plot (or outlier map), visualize it, and save it as “PCA_diagnostic_plot.png”.
+
+# write your solution here:
+
+
+
+# plot diagnostic plot
+png("SnoN_AllData_PcaGrid_RobustPCAPlot.png",        
+    width = 15*100,        # 5 x 300 pixels
+    height = 15*100,
+    res = 300,            # 300 pixels per inch
+    pointsize = 8)        # smaller font size
+
+pca.scoreplot(pcaG_all, id.n=12)
+dev.off()
+
+```
+
+
+# ============================ TODOs  ===========================
+```{r}
+# Question 8: 
+# remove outliers from the count matrix table and from the design table
+
+# solution here:
+
+
+```
+
+
+
+# ============================ TODOs  ===========================
+```{r}
+# Question 9: 
+#Construct DESeq2 object and perform filtering and normalization as you did above.
+
+# solution here:
+
+# construct DESeq2 object
+ddsCount_final  <- DESeqDataSetFromMatrix()
+
+# pre-filtering to keep only rows that have at least 10 reads total
+
+#Rlog transformation of values
+rld_final <- rlog(dds_final)
+
+```
+
+
+
+```{r}
+# code for PCA plot
+sampleDists <- dist(t(assay(rld_final)))
+sampleDistMatrix <- as.matrix(sampleDists)
+colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+pheatmap(
+  sampleDistMatrix,
+  clustering_distance_rows=sampleDists,
+  clustering_distance_cols=sampleDists,
+  col=colors
+  )
+plotPCA(rld_final, intgroup=c("condition"))
+```
+
+
+
+
+
+# ============================ TODOs  ===========================
+```{r}
+# Question 10: 
+# Perform differential expression analysis and generate the result table comparing SnoN KO vs. WT with default parameters. What’s the default parameters for p values and log 2 fold changes? How many differentially expressed genes are there? 
+# Plot the counts plot for gene "ENSMUSG00000046152". Save the file as "Count_Plot_ENSMUSG00000046152.png”
+
+# solution here:
+
+
+
+```
+
+
+```{r}
+# get statistically significant DEGs only
+df_res <- as.data.frame(res)
+df_res[is.na(df_res)] <- 1.0
+DEG_only <- df_res[df_res$padj < 0.1 , ]
+
+# convert Ensemble ID to gene names
+genes_need_ID <- rownames(DEG_only)
+
+temp_df <- mouseProteinCodingGenes[mouseProteinCodingGenes$ensembl_gene_id %in% genes_need_ID, c("ensembl_gene_id", "external_gene_name")]
+rownames(temp_df) <- temp_df$ensembl_gene_id
+res_with_geneNames <- merge(DEG_only, temp_df, by="row.names")
+rownames(res_with_geneNames) <- res_with_geneNames$ensembl_gene_id
+
+# save DEGs into output file
+write.csv(res_with_geneNames,file="SnoN_KO_RNAseq_DESeq2_DEGs.csv")
+
+############################
+# output normalized counts to table with log fold change
+res_with_geneNames$Row.names <- NULL
+data_normalized_counts <- merge(res_with_geneNames, as.data.frame(counts(dds_final,normalized =TRUE)), by = 'row.names')
+write.csv(data_normalized_counts, file="SnoN_EGL_PcaHubert_outlierRemoval_DESeq2_DEGs_p01_noLFCcutoff_withNormalizedCounts.csv")
+
+# output all genes
+genes_need_ID <- rownames(df_res)
+temp_df <- mouseProteinCodingGenes[mouseProteinCodingGenes$ensembl_gene_id %in% genes_need_ID, c("ensembl_gene_id", "external_gene_name")]
+rownames(temp_df) <- temp_df$ensembl_gene_id
+df_res_with_geneNames <- merge(df_res, temp_df, by="row.names")
+
+df_res_with_geneNames$Row.names <- NULL
+rownames(df_res_with_geneNames) <- df_res_with_geneNames$ensembl_gene_id
+data_normalized_counts <- merge(df_res_with_geneNames, as.data.frame(counts(dds_final,normalized =TRUE)), by = 'row.names')
+data_normalized_counts$Row.names <- NULL
+rownames(data_normalized_counts) <- data_normalized_counts$ensembl_gene_id
+
+
+write.csv(data_normalized_counts,file="SnoN_KO_EGL_RNAseq_PcaHubert_outlier_No_WT2KO4_DESeq2_output.csv")
+
+```
+
+```{}
+# ============================ TODOs  ===========================
+# Bonus Question 1: 
+# draw a heatmap to show the differentially expressed genes and save it as “DEG_Heatmap.png”.
+
+# solution here:
+
+
+```
+
+Submission requirement (deadline: 2/27/2026, 11:59PM):
+1. Submission path: 
+2. Rmd file
+3. html output from Rmd
+4. pngs required by each questions.
+Note: for all plots, please print them in the rmd/html file as well.
+
+save.image("Bio5488_Homework_RNA_seq_SnoN_KO_analysis.RData")
