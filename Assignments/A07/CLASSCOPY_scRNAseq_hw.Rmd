@@ -1,0 +1,255 @@
+#### Bio5488 scRNAseq Homework #####
+
+```{r}
+# install/load necessary libraries following the instruction on the webpage
+# https://satijalab.org/seurat/articles/install_v5
+library(Seurat)
+library(SeuratData)
+library(patchwork)
+library(dplyr)
+
+# install dataset # Should be done already, you don't need to do this
+#install.packages("https://seurat.nygenome.org/src/contrib/ifnb.SeuratData_3.0.0.tar.gz", repos = NULL, type = "source") 
+
+assignDir <- "/storage1/fs1/workshops/Active/BIO5488/SP2025.L41.BIOL.5488.01/Assignments/A07" 
+dataDir <- paste(assignDir, "Assignment_Data/pbmc3k_filtered_gene_bc_matrices/filtered_gene_bc_matrices/hg19", sep="/")
+
+# set working directory, replace it with your own wustl key
+wd <- paste(assignDir, "Users/[your own key]", sep="/")
+setwd(wd)
+options(encoding = "UTF-8")
+```
+
+## Part 1 - Analyzing a single scRNA-seq sample ##
+
+Setup Seuart objects
+```{r}
+# read in the data stored in the file "pbmc3k_filtered_gene_bc_matrices.tar" and construct the Seurat object named "pbmc"
+
+pbmc.data <- Read10X(data.dir = dataDir)
+# Initialize the Seurat object with the raw (non-normalized data).
+pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
+pbmc
+```
+
+## Question 1
+
+Filtering data
+
+```{r}
+# calculate percentage of mitochondria genes
+pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
+
+# Show QC metrics for the first 5 cells
+head(pbmc@meta.data, 5)
+
+# Explore metadata table, find where was the percentage of mitochondria genes stored and calculate the mean and range of the percentage of mitochondria genes
+mean(pbmc@meta.data$percent.mt)
+range(pbmc@meta.data$percent.mt)
+```
+
+```{r}
+# perform quality control by filtering cells that have unique feature counts over 2,500 or less than 200, and filtering cells that have >5% mitochondrial counts.
+
+# write your code here. Use subset() function. Very short, it's possible to do it in 1 line.
+
+```
+
+
+## Visualize your data
+
+Plot violin plot showing “nFeature_RNA", "nCount_RNA", "percent.mt” after QC.
+
+```{r}
+# write your code here, use the function VlnPlot()
+# Save the plot as file "Q2_Single_Sample_After_QC_QualityStatistics.png".
+
+```
+
+Written part for Q2:
+Compare with pre-QC plots provided on the website. What’s the benefit of performing QC?
+
+[write your answers here]
+
+
+## Question 3
+```{r}
+# Normalizing the data, Identification of highly variable features (feature selection)
+pbmc <- NormalizeData(pbmc)
+pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
+
+# Scale the data and ‘regress out’ heterogeneity associated with mitochondrial contamination for all the features in the object 
+all.genes <- rownames(pbmc)
+pbmc <- ScaleData(pbmc, features = all.genes, vars.to.regress = "percent.mt")
+
+# Perform linear dimensional reduction
+pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
+
+# Examine and visualize PCA results a few different ways
+print(pbmc[["pca"]], dims = 1:5, nfeatures = 5)
+VizDimLoadings(pbmc, dims = 1:2, reduction = "pca")
+DimPlot(pbmc, reduction = "pca") + NoLegend()
+
+# Determine the ‘dimensionality’ of the dataset
+ElbowPlot(pbmc)
+
+# Cluster the cells
+pbmc <- FindNeighbors(pbmc, dims = 1:10)
+pbmc <- FindClusters(pbmc, resolution = 0.5)
+
+table(Idents(pbmc))
+
+# Run non-linear dimensional reduction (UMAP/tSNE) and plot UMAP. 
+pbmc <- RunUMAP(pbmc, dims = 1:10)
+DimPlot(pbmc, reduction = "umap")
+```
+
+```{r}
+# Plot violin plot showing “nFeature_RNA", "nCount_RNA", "percent.mt” for all the cell clusters.
+
+# write your code here, use VlnPlot()
+# Save the plot as file " Q3_Single_Sample_CellCluster_QualityStatistics.png".
+
+```
+
+Written part for Q3:
+
+Take a look at the plot and think about the differences from the previous QC plot. What does the nCount and nFeature from different cell clusters tell you? Is it biology or technical artifact?
+
+[write your answers here]
+
+## Question 4
+```{r}
+# Finding differentially expressed features (cluster biomarkers)
+# find markers for every cluster compared to all remaining cells, report only the positive
+pbmc.markers <- FindAllMarkers(pbmc, only.pos = TRUE)
+pbmc.markers %>%
+    group_by(cluster) %>%
+    dplyr::filter(avg_log2FC > 1)
+    
+pbmc.markers %>%
+    group_by(cluster) %>%
+    dplyr::filter(avg_log2FC > 1) %>%
+    slice_head(n = 10) %>%
+    ungroup() -> top10
+DoHeatmap(pbmc, features = top10$gene) + NoLegend()
+
+# Find unique markers for each cell clusters and select two unique marker genes for each cluster. Then plot the expression of the selected marker genes for all clusters using violin plot.
+# Save the plot as file " Q4_Single_Sample_CellCluster_uniqueMarkers.png". 
+
+# write your code here
+
+```
+
+No written question for Q4
+
+## Question 5
+
+Introduction to scRNA-seq integration of more than one samples
+```{r}
+# load dataset
+library(ifnb.SeuratData)
+ifnb<-LoadData("ifnb")
+
+#Take a look of the metadata table to find out where is the information about stimulation status and cell type annotation was stored in the object. Show how many cells in each of the conditions and how many cells in each cell type. We will use the cell type information stored in the original object as the “gold standard” to evaluate the cell clustering results. 
+
+# write your code here
+# You need to print out
+#  1. how many cells in each of the conditions
+#  2. how many cells in each cell type
+# Play around with the object (ifnb) and looking around is encouraged
+
+```
+
+## Question 6
+
+Perform analysis without integration.
+
+Run standard analysis workflow following the instruction on the website:
+
+```{r}
+# split the RNA measurements into two layers one for control cells, one for stimulated cells
+ifnb[["RNA"]] <- split(ifnb[["RNA"]], f = ifnb$stim)
+ifnb
+
+# Provide comment for each line of code to explain what the command were trying to accomplish. Then generate two UMAP plots with cells grouped by stim condition and cluster respectively in a single file. Label the clusters with cluster IDs. Save the plot as file " Q6_Two_Samples_CellCluster_Without_Integration.png".  
+
+# write your code here
+
+```
+
+## Question 7
+```{r}
+# Compare cluster ID with the cell type labels that are pre-loaded in the  “seurat_annotations” metadata column. Provide a table with rows being cell cluster ID and columns being the original cell annotation names. Save the table as file "Q7_Two_Samples_CellCluster_Without_Integration_CellAnnotation.csv".
+
+# write your code here
+```
+
+Written Part of Q7:
+Which cluster(s) is “CD14 Mono”? Which cluster(s) is “CD16 Mono”? Which cluster(s) is “DC”?  What’s the problem with the current analysis?
+
+[write your answers here]
+
+## Question 8
+
+Perform analysis with integration.
+
+```{r}
+# run integrated analysis workflow following the instruction on the website
+# Provide comment for each line of code to explain what wase the command trying to accomplish. Then generate two UMAP plots with cells grouped by stim condition and cluster respectively in a single file. Label the clusters with cluster IDs. Save the plot as file " Q8_Two_Samples_CellCluster_With_Integration.png".
+
+# write your code here
+
+```
+
+
+## Question 9
+```{r}
+# Compare cluster ID with the cell type labels that are pre-loaded in  the “seurat_annotations” metadata column. Provide a table with rows being cell cluster ID and columns being the original cell annotation names. Save the table as file "Q9_Two_Samples_CellCluster_With_Integration_CellAnnotation.csv".  
+
+# write your code here
+```
+
+Written Part of Q9:
+
+Which cluster(s) is “CD14 Mono”? Which cluster(s) is “CD16 Mono”? Which cluster(s) is “DC”?  Comparing to Question 8, what has changed? Why this analysis is better than the analysis without integration.
+
+[write your answers here]
+
+## Question 10
+Find conserved markers for cell cluster 0.
+
+```{r}
+Idents(ifnb) <- "seurat_clusters"
+
+# There is a Seurat function called FindConservedMarkers().
+# However, it requires a C dependency (not R package) called fftw3.
+# Jimmy cannot get this to install, so we are finding the conserved markers in the old way.
+split_objs <- SplitObject(ifnb, split.by = "stim")
+
+markers.stim <- FindMarkers(split_objs$STIM, ident.1 = 0)
+markers.ctrl <- FindMarkers(split_objs$CTRL, ident.1 = 0)
+markers.stim$gene <- rownames(markers.stim)
+markers.ctrl$gene <- rownames(markers.ctrl)
+
+makers.conserved <- inner_join(markers.stim, markers.ctrl, by = "gene")
+
+# Filter genes that are significantly differentially expressed in both conditions
+# You choose your threshold!
+makers.conserved <- makers.conserved %>%
+    filter(...) # "remove ..., put in your criteria"
+
+# Show conserved markers
+head(nk.conserved)
+```
+
+Written Part of Q10:
+
+Choose a threshold to get a list of conserved markers. Provide the command and the rational for selected parameters.
+
+What was the cell type cluster 0 annotated as in the original object? Provide evidence and rationale why cluster 0 should be annotated as that cell type.
+
+```{r}
+# save worksapce
+save.image("Bio5488_Homework_scRNAseq_analysis.RData")
+```
