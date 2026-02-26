@@ -134,7 +134,7 @@ pbmc.markers %>%
     ungroup() -> top10
 DoHeatmap(pbmc, features = top10$gene) + NoLegend()
 
-# Find unique markers for each cell clusters and select two unique marker genes for each cluster. Then plot the expression of the selected marker genes for all clusters using violin plot.
+# Find unique markers for each cell cluster and select two unique marker genes for each cluster, then plot the expression of the selected marker genes for all clusters using violin plot.
 # Save the plot as file " Q4_Single_Sample_CellCluster_uniqueMarkers.png". 
 
 # write your code here
@@ -151,7 +151,7 @@ Introduction to scRNA-seq integration of more than one samples
 library(ifnb.SeuratData)
 ifnb<-LoadData("ifnb")
 
-#Take a look of the metadata table to find out where is the information about stimulation status and cell type annotation was stored in the object. Show how many cells in each of the conditions and how many cells in each cell type. We will use the cell type information stored in the original object as the “gold standard” to evaluate the cell clustering results. 
+#Take a look at the metadata table to find out where the information about stimulation status and cell type annotation was stored in the object. Show how many cells in each of the conditions and how many cells in each cell type. We will use the cell type information stored in the original object as the “gold standard” to evaluate the cell clustering results. 
 
 # write your code here
 # You need to print out
@@ -168,11 +168,11 @@ Perform analysis without integration.
 Run standard analysis workflow following the instruction on the website:
 
 ```{r}
-# split the RNA measurements into two layers one for control cells, one for stimulated cells
+# split the RNA measurements into two layers: one for control cells, one for stimulated cells
 ifnb[["RNA"]] <- split(ifnb[["RNA"]], f = ifnb$stim)
 ifnb
 
-# Provide comment for each line of code to explain what the command were trying to accomplish. Then generate two UMAP plots with cells grouped by stim condition and cluster respectively in a single file. Label the clusters with cluster IDs. Save the plot as file " Q6_Two_Samples_CellCluster_Without_Integration.png".  
+# Provide comments for each line of code to explain what the command was trying to accomplish, then generate two UMAP plots with cells grouped by stim condition and cluster, respectively, in a single file. Label the clusters with cluster IDs. Save the plot as file " Q6_Two_Samples_CellCluster_Without_Integration.png".  
 
 # write your code here
 
@@ -224,7 +224,7 @@ Idents(ifnb) <- "seurat_clusters"
 
 # There is a Seurat function called FindConservedMarkers().
 # However, it requires a C dependency (not R package) called fftw3.
-# Jimmy cannot get this to install, so we are finding the conserved markers in the old way.
+# Jimmy (SP2025 TA) cannot get this to install, so we are finding the conserved markers in the old way.
 split_objs <- SplitObject(ifnb, split.by = "stim")
 
 markers.stim <- FindMarkers(split_objs$STIM, ident.1 = 0)
