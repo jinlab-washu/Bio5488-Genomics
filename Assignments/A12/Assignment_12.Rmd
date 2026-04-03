@@ -1,0 +1,412 @@
+---
+title: "Bio 5488 Homework lab 12, 16S Analysis"
+author: "Rachel Rodgers, Haina Jin, Humza Hemani"
+date: "`r format(Sys.Date(), "%B, %d, %Y")`"
+output:
+  pdf_document: default
+  html_document:
+    code_folding: hide
+---
+
+```{r global-options}
+knitr::opts_chunk$set(warning = FALSE,
+                      message = FALSE)
+
+```
+
+##Introduction
+This data set contains stool samples from mice raised in two different housing facilities. We want to analyze what is different between the stool microbiome between mice from these two facilities, using 16S rRNA gene data. We will use R to analyze this dataset.
+
+You will be downloading R and R studio and a set of required packages on your local laptop to do this assignment.
+
+You will need to load our required packages and any other scripts we want to use.
+If some of the packages does not exist in your directory, please install them.
+
+You may need BiocManager to install some of the packages.
+```{r install-libraries (if needed)}
+library(BiocManager)
+BiocManager::install("phyloseq")
+BiocManager::install("microbiome")
+BiocManager::install("DESeq2")
+```
+
+```{r load-libraries}
+library("phyloseq")
+library("ggpubr")
+library("ggrepel")
+library("data.table")
+library("microbiome")
+library("vegan")
+library("gridExtra")
+library("DESeq2")
+library("plotly")
+library("tidyverse")
+```
+
+# Read-In and Modify Data
+
+Download data from “/storage1/fs1/workshops/Active/BIO5488/SP2026.L41.BIOL.5488.01/Assignments/A12/Assignment_Data” RIS directory - the sample metadata (16S_Analysis_Example_MappingFile.txt) and the raw phyloseq data (16S_Analysis_Example_ps0.rdp_single.RDS).
+
+A 16S analysis using phyloseq requires a phyloseq object (created from the DADA2 pipeline) and metadata, which describes each sample. Typically metadata is supplied via a mapping file which is created when you prepare your samples for sequencing. 
+
+First we need to read-in the sample metadata and the raw phyloseq data.  In the modify-sample-data code chunk we can clean up the sample metadata as needed for the analysis.  Then we'll combine it with the phyloseq data. The phyloseq object is the basic object that we will use for most of the 16S analysis. [See this phyloseq tutorial for more information.](https://joey711.github.io/phyloseq/import-data.html)
+
+```{r read-in-sample-data}
+# change the path to the path to your document
+sampleDataRaw <- read.delim("./16S_Analysis_Example_MappingFile.txt",
+                            check.names = FALSE)
+```
+
+There are several columns in sampleDataRaw.  Several of the columns aren't required for this analysis.  The columns that we really care about are the #SampleID and the Experiment column, which contains the variable of interest (which facility the sample came from).  Let's rename that column to something more reasonable, like Site.
+
+```{r modify-sample-data}
+sampleDataModified <- sampleDataRaw %>% 
+  select(- `X.SampleID`)
+```
+
+As you go along in the analysis, you may realize that you need to modify the sample metadata in some way, such as adding or changing variables.  You can return to the above code chunk and add code to modify as needed.  This will keep all the sample data modifications in one location that is easily found, instead of little changes made here-and-there all throughout the script.  Just remember to re-merge it with the phyloseq object, as shown in the next chunk.
+
+```{r read-in-phyloseq-merge}
+# change the path to the path to your document
+physeqRaw <- readRDS("./16S_Analysis_Example_ps0.rdp_single.RDS")
+physeqRaw
+
+```
+
+```{r merge dataframes}
+# Move the X.SampleID column to the rownames in sampleDataModified before merging.
+sampleDataFinal <- column_to_rownames(sampleDataModified, var = "Sample")
+
+physeqMerged <- merge_phyloseq(sample_data(sampleDataFinal), physeqRaw)
+physeqMerged
+
+```
+
+# Reads per ASV and Read Count Distributions
+
+At the beginning of the analysis, we check for sample outliers (samples with underlying data that do not conform to experimental or biological expectations) in order to minimize technical variance. There are several ways to detect these outliers. Here we will look for samples with unexpected numbers of read counts, then check how the samples cluster to see if samples are behaving unexpectedly.
+
+## Reads per ASV
+
+By looking at the number of reads per ASV (you can think of ASV as a single species), we can get a feel for the taxonomic distribution of reads. Typically there will be a few ASVs with very high reads in the data set (very abundant), and many more ASVs with lower read counts, making for a "long tail" distribution
+
+```{r Reads per ASV}
+readsPerASV <- data.frame("nreads" = sort(taxa_sums(physeqMerged),
+                                          decreasing = TRUE),
+                          "sorted" = 1:ntaxa(physeqMerged))
+# Use a bar graph to show the number of reads per ASV.
+# your code here
+
+```
+
+Please use this plot (and similarly use other plots you will generate) to answer the homework questions Q1-Q9.
+
+#### Q1: What is the approximate range for the number of sequences observed per ASV?
+A1: 
+
+
+## Reads per Sample
+
+Next we'll look at how many reads are in each sample, and check if any samples have an unexpected number of reads.  Some very low read samples may be low due to technical problems, as opposed to being due to true biological variation.  Identifying (and removing) these types of samples helps us identify real variations in the microbiome due to biology and not some other confounder.
+
+```{r reads-per-sample, fig.width=9, fig.height=6}
+readsPerSample <- data.frame("reads_per_sample" = sample_sums(physeqMerged))
+summary(readsPerSample)
+
+# Merge readsPerSample back with the sample data for plotting.
+sampleData <- merge(sample_data(physeqMerged), readsPerSample,
+                    by = "row.names", all = TRUE)
+sampleData <- column_to_rownames(sampleData, var = "Row.names")
+
+# Let's sort the sampleData data frame from highest to lowest count sample.
+sampleData <- sampleData %>%
+  rownames_to_column() %>%
+  dplyr::arrange(desc(reads_per_sample)) %>%
+  column_to_rownames()
+sampleOrder <- as.character(sampleData$Sample)
+# Now apply sampleOrder to the Sample column so they sort correctly in the plot
+sampleData$Sample <- factor(sampleData$Sample, levels = sampleOrder)
+
+# Plot the reads per sample bar plot using ggplot and geom_bar
+# your code here. 
+
+```
+
+#### Q2: Which sample has the highest number of reads?
+A2: 
+
+
+```{r distribution of read counts}
+# Plot histogram showing distribution of read counts using ggplot + geom_histogram
+
+# your code here
+
+```
+
+
+We can see here that there is not a big drop in read counts and no samples with unusually low read counts that may need to be removed.  Also note that read counts have a somewhat normal (but not perfect) distribution.
+
+## Reads per Group
+
+Since we will be checking for differences between the Site variable (Facility_1 vs. Facility_2) we should check for differences in the average read number.  Significant differences here could have an impact on significant differences we find in ecological indices that we calculate, such as richness, so it's good to know ahead of time.
+
+```{r reads-per-group, fig.width=9, fig.height=6}
+# Plot a graph for reads per group using ggplot + geom_boxplot, using the stat_compared_means with method = “wilcox.test” to perform comparisons
+# your code here
+```
+
+#### Q3: Is there a statistical difference in the number of reads between the facilities?
+A3: 
+
+## MDS Outliers
+
+Creating an MDS plot of the Bray-Curtis distances between samples can give us some idea if samples are not clustering with other samples as may be expected.  This could be indicative of some technical issue with the sample.
+
+```{r mds-bray-curtis, fig.width=9, fig.height=6}
+set.seed(32688024) # set the seed for reproducibility of "random" computations
+
+# Use the function ordinate with method “MDS” and distance “bray” and use plot_ordination to plot the mds plot.
+# your code here
+
+```
+
+#### Q4: Do you see any obvious groupings of samples by this analysis? What does it suggest to you? Are there any obvious outliers?
+A4: 
+
+At this point there isn't justification for removing any samples. We will explore distance metrics further in the analysis when we get to beta-diversity.
+
+
+# Taxa Filtering
+
+Non-bacterial taxa need to be removed from the data set.  We also want to check for low abunance/low prevalence taxa which may not contribute to the overall community evaluation or differential abundance testing.
+
+```{r remove-non-bacterial-taxa}
+# Note that this step will remove any taxa designated as NA at the Kingdom or
+#   Phylum rank.
+# originally 508 taxa in 12 samples (physeqMerged)
+physeqBacteria <- physeqMerged %>%
+  subset_taxa(Kingdom == "Bacteria" & Phylum != "Cyanobacteria/Chloroplast")
+physeqBacteria # 498 taxa in 12 samples
+```
+
+Analysis can benefit from the removal of low prevalence and low abundance taxa.  Prevalence is defined as the number of samples in which a taxon appears at least once.  Here I will explore the relationship of prevalence and total read count for each feature at the phylum level.
+
+```{r tax-rank-prevalence, fig.width=9, fig.height=6}
+# Calculate prevalence of taxa at a given taxonomic rank for low prevalence taxon filtering.
+
+# Create a named vector where each element name is an OTU sequeunce, and each value
+#   is the number of sequences in which that OTU is present (max value is the total
+#   number of sequences).
+prevalence_vector <- apply(X = otu_table(physeqBacteria),
+                           MARGIN = ifelse(taxa_are_rows(physeqBacteria), yes = 1, no =2),
+                           FUN = function(x) {sum(x > 0)})
+# Generate a prevalence dataframe that also adds a TotalAbundance column (the total
+#   number of reads for that OTU across all samples) and the taxonomy information 
+#   for each OTU.
+prevalence_df <- data.frame(Prevalence = prevalence_vector,
+                            TotalAbundance = taxa_sums(physeqBacteria),
+                            tax_table(physeqBacteria))
+
+phylaPrevalencePlot <- ggplot(prevalence_df,
+                              aes(x = TotalAbundance,
+                                  y = Prevalence/nsamples(physeqBacteria), # to get a fraction
+                                  color = Family)) +
+  geom_hline(yintercept = 1/12, alpha = 0.5, linetype = 2) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_x_log10() +
+  xlab("Total Abundance") +
+  ylab("Prevalence [Frac. Samples]") +
+  facet_wrap(~ Phylum) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  ggtitle("Phylum Prevalence in All Samples",
+          subtitle = "Colored by Familiy")
+phylaPrevalencePlot
+```
+
+#### Q5: Do you observe any phyla that are low in prevalence and abundance in this dataset? 
+A5: 
+
+```{r taxa prevalence }
+taxaPrevalence_table <- plyr::ddply(prevalence_df,
+                                    "Phylum",
+                                    function(df1) {
+                                      cbind("Avg_Prevalence" = mean(df1$Prevalence), 
+                                            "Total_Prevalence" = sum(df1$Prevalence))
+                                    })
+taxaPrevalence_table
+
+```
+
+# Community Composition Plotting
+
+Community composition plots can be used to examine overall taxon representation across samples.  Here we'll compare the taxa found in the samples from the different facilities, focusing at the Phylum level and without any abundance filtering.
+
+```{r community-composition, fig.width=9, fig.height=6}
+# Plot the community composition at phylum level without any abundance filtering, and remember to transform your sample counts using normalization (x/sum(x))
+# your code here
+
+# If you wanted to add an abundance filter to, for example, remove any species
+#   that account for < 5% of the total reads in a sample, you could add after
+#   psmelt:
+# %>% filter(Abundance > 0.05)
+
+# Plot community composition plot using ggplot + geom_bar. If you do not know how does a community composition plot look like, please google it.
+# your code here.
+
+```
+
+#### Q6: Are there any obvious differences in the composition of the microbiota between Facility 1 and 2? 
+A6: 
+
+
+You can make community composition plots at various taxonomic ranks and with different levels of abundance filtering.  In a typical analysis, I would create a loop to make a composition plot at every level, or use an RShiny widget.
+
+# Alpha Diversity
+
+Alpha diversity is a standard tool used to calculate ecological indices which give the number of taxa present in a study and the relationships between relative abundance and how evenly taxa are distributed. These indices provide useful summary information about the community structure of a given sample.
+
+We are primarily interested in richness (the number of taxa per sample) and Shannon diversity (a description of the richness and evenness of a sample's community). An evenness of 0 indicates that a community is dominated by one or a few taxa, but an evenness of 1 means that species are evenly distributed. Diversity increases as richness and evenness increase. 
+
+Here we'll calculate richness ("observed"), Pielou's evenness ("evenness_pielou") and Shannon diversity ("diversity_shannon"), and add this information back to the sample data data frame for plotting.
+
+```{r alpha-diversity, fig.width=10, fig.height=5}
+# Use microbiome::alpha to compute the richness, Pielou’s evenness, and Shannon diversity for your data.
+# and make boxplots of sample’s richness, Pielou’s evenness, and Shannon’s diversity, grouped by site.
+# To make statistical comparisons, please use stat_compare_means and method = t.test; 
+# If you want, you can use grid.arrange to arrange and display these plots
+# your code here
+
+```
+
+
+#### Q7: Are there any significant differences in alpha diversity between samples from Facility 1 and 2? 
+A7: 
+
+
+# Beta Diversity
+
+## Distance Measures
+
+While alpha diversity was concerned with describing the community within a sample, beta diversity compares the communities between samples. Beta diversity is quantified through "association" coefficients - similarity or distance measures. It describes how similar/dissimilar samples' communities are to one another. We view these distances with ordination plots such as PCoA.
+
+A common distance measure is the UniFrac distance, which is a measure that considers the phylogenetic relationships between bacterial taxa. A community of more closely-related taxa is less diverse than a community of distantly-related taxa. The weighted UniFrac measure adds on to this by accounting for the relative abundance of each taxa. Again, the choice of metric requires understanding of the underlying data, experiment and justification.
+
+Here we will just focus on the weighted UniFrac distances.
+
+```{r weighted-unifrac-pcoa, fig.width=9, fig.height=6}
+
+# Use the function ordinate and method = “PCA”, distance = “wunifrac” to compute weighted unifrac distances
+# Use plot_ordination to plot your beta-diversity, and color by “Site”
+# your code here
+
+set.seed(46395617)
+
+```
+
+To determine whether clustering is significant by Site, we will run an ADONIS test.
+
+```{r beta-adonis}
+set.seed(46395617)
+
+# Use phyloseq::distance followed by adonis 
+# Please record your test results
+# your code here
+
+```
+
+The test result will appear in the same portion of the screen as the command line.
+#### Q8: Are the samples statistically significantly different by Site? 
+A8: 
+
+
+## Differentially Abundant Taxa (Biomarker Analysis)
+
+In this step, we are looking for differentially abundant taxa that may diagnose whether a sample originated from facility 1 or facility 2.  A differentially abundant taxon is a species whose abundance is significantly different between categories.  While there are many ways to test for these taxa, here we are using DESeq2.
+
+```{r deseq}
+dds <- phyloseq_to_deseq2(physeqBacteria, design = ~ Site)
+# Run analysis
+ddsAnalysis <- DESeq(dds, test = "Wald", fitType = "local", betaPrior = FALSE)
+# Extract and format results
+ddsResults <- results(ddsAnalysis,
+                      contrast = c("Site", "Facility_1", "Facility_2")) 
+
+mcols(ddsResults)
+
+# This contrast (and the mcols() results) tells us that results should be interpreted
+#   as facility 1 compared to facility 2.  So, a positive log2FC means the taxon
+#   is more abundant in facility 1 and less abunant in facility 2.  The opposite
+#   is true for a negative log2FC.
+
+# From the DESeq results generated by GenerateDESeqResults, create a
+#   results data table that includes the taxonomy information and a column
+#   indicating whether results for each taxon are significant.
+
+# Extract taxonomy table:
+taxTable <- data.table(data.frame(as(tax_table(physeqBacteria), "matrix")),
+                       keep.rownames = TRUE)
+setnames(taxTable, "rn", "OTU")
+setkeyv(taxTable, "OTU")
+  
+# Extract DESeq results as a data frame:
+resDT <- data.table(as(ddsResults, "data.frame"),
+                    keep.rownames = TRUE)
+
+setnames(resDT, "rn", "OTU")
+setkeyv(resDT, "OTU")
+  
+# Combine taxonomy information with the results table:
+resDT <- taxTable[resDT]
+resDT <- resDT %>%
+  filter(padj != "NA") %>%
+  mutate(Significant = padj < 0.05) 
+  
+# Create volcano plot object
+volcano <- ggplot(resDT,
+                  aes(x = log2FoldChange, y = -log10(padj),
+                      label1 = Family, # These labels are for plotly
+                      label2 = Genus,
+                      label3 = Species)) +
+  geom_point(data = subset(resDT,
+                           resDT$Significant == FALSE), # non sig. taxa are grey
+             color = "grey") +
+  geom_point(data = subset(resDT,
+                           resDT$Significant == TRUE),
+             aes(color = Phylum, size = baseMean)) + # sig. taxa colored by Phylum
+  geom_vline(xintercept = 0, lty = 2) +
+  geom_hline(yintercept = -log10(0.05)) +
+  ggtitle("Differntially Abundant Taxa by Facility") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        legend.text = element_text(size = 12))
+```
+
+```{r plot-volcano, fig.width=11, fig.height=8.5}
+# save your script before interacting with the plotly plot.  It has a tendency to
+#   crash the RStudio session.
+#   If you have problems, you can view the static plot directly by typing volcano.
+ggplotly(volcano, tooltip = c("Phylum", "Genus", "Species", "log2FoldChange", "baseMean"))
+```
+
+#### Q9: Taxa enriched in Facility 2 are on the left of the volcano plot, while taxa enriched in Facility 1 are on the right. Do you notice any broad trends? How does this compare with the community composition plots we looked at earlier? 
+A9: 
+
+
+***
+
+### Program Info & System Information
+
+This info is good for reproducibility and debugging.
+
+```{r sys-info}
+Sys.Date()
+getwd()
+sessionInfo()
+```
+
+
